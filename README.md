@@ -47,3 +47,23 @@ sudo apt-get install phonon-backend-gstreamer
 sudo apt-get install phonon-backend-vlc
 sudo apt-get install libopenni-dev libopenni2-dev
 ```
+
+During the package installation, there will exist some problems like cannot find the packages, which means the wrong package version is specified. Usually, the terminal will remind you which version is fit for your current setup.
+
+During the build and make. There exist some conflicts with anaconda environment packages. Some of them are needed and some of them will cause conflicts. Thus we need to move some files. The detail information is shown in:
+
+https://blog.csdn.net/u014734886/article/details/93029349
+
+该作者使用的是anaconda2，它删除了anaconda2/lib下的libuuid库文件。于是我找到自己anaconda3目录下的lib，搜索libuuid，找到了5个文件
+
+将他们全部删除，再运行make，在一段漫长的等待后，终于成功编译了！
+
+```bash
+# Compile and install PCL
+mkdir release
+cd release
+cmake -DCMAKE_BUILD_TYPE=None -DBUILD_GPU=ON -DBUILD_apps=ON -DBUILD_examples=ON ..
+make
+sudo make install
+```
+
