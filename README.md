@@ -67,3 +67,46 @@ make
 sudo make install
 ```
 
+### 4.Test
+https://zhuanlan.zhihu.com/p/92164338
+
+Based on the test files created on this website, we can test the PCL is correctly installed or not.
+
+### 5. Cmake status, not the error
+https://github.com/PointCloudLibrary/pcl/issues/2487
+
+During the cmake, there will show some information like
+
+```bash
+-- Could NOT find OpenNI (missing: OPENNI_LIBRARIES OPENNI_INCLUDE_DIRS) 
+CMake Warning at cmake/pcl_targets.cmake:864 (message):
+  OpenNI grabber support: not building because OpenNI not found
+Call Stack (most recent call first):
+  CMakeLists.txt:315 (PCL_ADD_GRABBER_DEPENDENCY)
+
+
+-- Could NOT find OpenNI2 (missing: OPENNI2_LIBRARIES OPENNI2_INCLUDE_DIRS) 
+CMake Warning at cmake/pcl_targets.cmake:864 (message):
+  OpenNI2 grabber support: not building because OpenNI2 not found
+Call Stack (most recent call first):
+  CMakeLists.txt:316 (PCL_ADD_GRABBER_DEPENDENCY)
+
+
+-- Could NOT find FZAPI (missing: FZAPI_LIBS FZAPI_INCLUDE_DIRS) 
+CMake Warning at cmake/pcl_targets.cmake:864 (message):
+  Fotonic camera support: not building because FZAPI not found
+Call Stack (most recent call first):
+  CMakeLists.txt:317 (PCL_ADD_GRABBER_DEPENDENCY)
+
+
+-- Could NOT find ENSENSO (missing: ENSENSO_LIBRARIES ENSENSO_INCLUDE_DIRS) 
+CMake Warning at cmake/pcl_targets.cmake:864 (message):
+  IDS-Imaging Ensenso camera support: not building because Ensenso not found
+Call Stack (most recent call first):
+  CMakeLists.txt:318 (PCL_ADD_GRABBER_DEPENDENCY)
+  ```
+  
+  They are normal. We don't need to respond to these warnings.
+
+### Some other useful Reference
+https://blog.csdn.net/yingmai77
